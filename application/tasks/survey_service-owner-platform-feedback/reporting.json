@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "1.0",
+  "contextRules": [
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_current_tools"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "current_tools.reason_themes",
+          "title": "Why they run the business the way they do today",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_revenue_feature"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "revenue_feature.reason_themes",
+          "title": "Why this feature would add revenue",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_quality_feature"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "quality_feature.reason_themes",
+          "title": "Why this feature would improve service quality",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_least_useful"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "least_useful.reason_themes",
+          "title": "Why this feature would go unused",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_must_have_gaps"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "must_have_gaps.reason_themes",
+          "title": "What has to exist before switching",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_online_price_stance"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "online_price.reason_themes",
+          "title": "Attitudes to showing prices online",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_adoption_risk"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "adoption_risk.reason_themes",
+          "title": "What would make adoption hard",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_pilot_intent"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "pilot_intent.reason_themes",
+          "title": "What decides a 30-day pilot",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_price_per_tech"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "price.reason_themes",
+          "title": "How they judge a fair price",
+          "targetFacetKey": "reason",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    },
+    {
+      "match": {
+        "contextType": "question_response",
+        "key": "question.q_one_change"
+      },
+      "summaryAnalyses": [
+        {
+          "id": "one_change.themes",
+          "title": "The one change that would win the switch",
+          "targetFacetKey": "response",
+          "groupByMode": "none",
+          "summaryKind": "llm_bucket_summary"
+        }
+      ]
+    }
+  ]
+}

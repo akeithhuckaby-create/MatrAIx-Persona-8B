@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "pool": "persona/datasets/matraix-persona-1m",
+  "sources": [],
+  "dimensionFilters": {
+    "demo_employment_status": [
+      "Self-employed"
+    ],
+    "domain": [
+      "Skilled Trades"
+    ],
+    "region": [
+      "North America"
+    ]
+  },
+  "sampling": {
+    "mode": "random",
+    "sampleSize": 60,
+    "seed": 42
+  }
+}

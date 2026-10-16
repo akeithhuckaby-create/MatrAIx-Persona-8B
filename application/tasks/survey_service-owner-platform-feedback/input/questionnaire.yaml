@@ -1,0 +1,223 @@
+schemaVersion: "1.0"
+id: service_owner_platform_feedback_v1
+title: "Field-Service Platform — Owner Feedback"
+description: "Which built features trade and home-service owners value for revenue and service quality, what blocks adoption, and what they would pay."
+questions:
+  - id: q_business_fit
+    prompt: "Which best describes you?"
+    type: single_choice
+    construct: business_fit
+    required: true
+    options:
+      - id: "owner_small_shop"
+        label: "I own or run a trade or home-service business with fewer than 50 employees."
+      - id: "owner_mid_company"
+        label: "I own or run a service company with 50 to 499 employees."
+      - id: "owner_large_company"
+        label: "I own or run a service company with 500 to 1,000 employees."
+      - id: "owner_enterprise"
+        label: "I own or run a service company with more than 1,000 employees."
+      - id: "solo_operator"
+        label: "I do the field work myself and have no employees."
+      - id: "work_in_trade"
+        label: "I work in a trade or service business, but I don't own or run it."
+      - id: "not_service"
+        label: "None of these. I don't work in a trade or home-service business."
+
+  - id: q_current_tools
+    prompt: "How does your business book, schedule and invoice work today?"
+    type: single_choice
+    construct: current_tools
+    required: true
+    askRationale: true
+    options:
+      - id: "paper_phone"
+        label: "Phone calls, paper and memory."
+      - id: "spreadsheets_calendar"
+        label: "Spreadsheets, a shared calendar and separate accounting software."
+      - id: "small_fsm_app"
+        label: "A small-business field-service app such as Jobber or Housecall Pro."
+      - id: "enterprise_fsm"
+        label: "A large field-service system such as ServiceTitan."
+      - id: "other_tools"
+        label: "Something else."
+
+  - id: q_revenue_feature
+    prompt: "Which ONE built feature would add the most revenue to your business in its first year?"
+    type: single_choice
+    construct: revenue_feature
+    required: true
+    askRationale: true
+    options: &built_features
+      - id: "instant_price_booking"
+        label: "Online booking with an instant, all-in price."
+      - id: "bookings_inbox"
+        label: "Bookings inbox and desk dashboard."
+      - id: "dispatch_board"
+        label: "Dispatch board and week capacity view."
+      - id: "tech_app_offline"
+        label: "Technician phone app with checklists, photos and signatures, working offline."
+      - id: "estimates_gbb"
+        label: "Good / better / best estimates with on-site e-sign."
+      - id: "invoicing"
+        label: "Invoicing built from the job."
+      - id: "timesheets"
+        label: "Timesheets and payroll hours export."
+      - id: "equipment_history"
+        label: "Equipment history for each property."
+      - id: "crews_routing"
+        label: "Install crews, route optimization and automatic dispatch to the best closers."
+      - id: "roles_shops"
+        label: "Roles for owners, office and technicians, with separate shops."
+
+  - id: q_quality_feature
+    prompt: "Which ONE built feature would most improve the quality of service your customers get?"
+    type: single_choice
+    construct: quality_feature
+    required: true
+    askRationale: true
+    options: *built_features
+
+  - id: q_least_useful
+    prompt: "Which ONE built feature would your business be least likely to use?"
+    type: single_choice
+    construct: least_useful_feature
+    required: true
+    askRationale: true
+    options: *built_features
+
+  - id: q_must_have_gaps
+    prompt: "Which not-yet-built features would you need before you switched your business onto this platform? (Select all that apply)"
+    type: multi_choice
+    construct: must_have_gaps
+    required: true
+    askRationale: true
+    options:
+      - id: "card_ach_payments"
+        label: "Card and ACH payments."
+      - id: "quickbooks_sync"
+        label: "QuickBooks sync."
+      - id: "customer_texts"
+        label: "Customer texts (confirmation, reminder, on-my-way)."
+      - id: "booking_creates_job"
+        label: "Online bookings creating scheduled jobs on their own."
+      - id: "memberships"
+        label: "Memberships and maintenance reminders."
+      - id: "reports"
+        label: "Reports beyond the desk dashboard."
+      - id: "data_import"
+        label: "Importing my customers, equipment and history."
+      - id: "multi_location"
+        label: "Multi-location management with branches rolled up under one company."
+      - id: "api_integrations"
+        label: "A public API and webhooks for our other systems."
+      - id: "soc2"
+        label: "SOC 2 security certification."
+      - id: "no_gaps"
+        label: "None. I could switch with what is built today."
+
+  - id: q_online_price_stance
+    prompt: "Would you let customers see a price online before the visit?"
+    type: single_choice
+    construct: online_price_stance
+    required: true
+    askRationale: true
+    options:
+      - id: "firm_prices"
+        label: "Yes, firm prices for common repairs."
+      - id: "ranges_only"
+        label: "Only price ranges, with the final price set on site."
+      - id: "diagnostic_fee_only"
+        label: "Only the diagnostic or trip fee."
+      - id: "call_for_price"
+        label: "No. Customers should call for a price."
+      - id: "no_online_booking"
+        label: "I wouldn't offer online booking at all."
+
+  - id: q_adoption_risk
+    prompt: "What is the biggest thing that would make this hard to adopt in your business?"
+    type: single_choice
+    construct: adoption_risk
+    required: true
+    askRationale: true
+    options:
+      - id: "tech_adoption"
+        label: "Getting technicians to use the phone app every job."
+      - id: "pricebook_setup"
+        label: "The time it takes to enter my services and prices."
+      - id: "office_learning"
+        label: "Office staff learning a new system."
+      - id: "data_migration"
+        label: "Moving customers and job history over."
+      - id: "customer_dropoff"
+        label: "Customers abandoning online booking partway through."
+      - id: "reliability"
+        label: "Worry that bugs or outages lose jobs or payments."
+      - id: "rollout_scale"
+        label: "Rolling it out across many branches, teams and managers at once."
+      - id: "cost"
+        label: "The cost."
+
+  - id: q_ease_expectation
+    prompt: "From this description, I'd expect my office staff to handle the daily screens within a week. (1 = strongly disagree, 5 = strongly agree)"
+    type: likert
+    construct: ease_expectation
+    required: true
+    minValue: 1
+    maxValue: 5
+
+  - id: q_quality_impact
+    prompt: "This platform would help my business deliver more consistent service quality. (1 = strongly disagree, 5 = strongly agree)"
+    type: likert
+    construct: quality_impact
+    required: true
+    minValue: 1
+    maxValue: 5
+
+  - id: q_revenue_impact
+    prompt: "This platform would help my business grow revenue within a year. (1 = strongly disagree, 5 = strongly agree)"
+    type: likert
+    construct: revenue_impact
+    required: true
+    minValue: 1
+    maxValue: 5
+
+  - id: q_pilot_intent
+    prompt: "Would you run a 30-day pilot of this platform alongside what you use today?"
+    type: single_choice
+    construct: pilot_intent
+    required: true
+    askRationale: true
+    options:
+      - id: "pilot_now"
+        label: "Yes, with what is built today."
+      - id: "pilot_after_gaps"
+        label: "Yes, once the features I need are built."
+      - id: "pilot_if_free"
+        label: "Only if the pilot is free and someone sets it up for me."
+      - id: "no_pilot"
+        label: "No."
+
+  - id: q_price_per_tech
+    prompt: "What monthly price would feel fair for your business?"
+    type: single_choice
+    construct: price_per_tech
+    required: true
+    askRationale: true
+    options:
+      - id: "under_50_per_tech"
+        label: "Under $50 per field technician per month."
+      - id: "50_100_per_tech"
+        label: "$50 to $100 per field technician per month."
+      - id: "100_200_per_tech"
+        label: "$100 to $200 per field technician per month."
+      - id: "over_200_per_tech"
+        label: "More than $200 per field technician per month."
+      - id: "flat_fee"
+        label: "A flat monthly fee for the whole business, not per technician."
+
+  - id: q_one_change
+    prompt: "What one change would most raise the chance that you'd switch your business to this platform?"
+    type: free_text
+    construct: one_change
+    required: true
