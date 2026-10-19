@@ -203,6 +203,22 @@ APPLICATION_TASK_METADATA: dict[str, dict[str, object]] = {
             "product perturbation",
         ],
     },
+    "survey_service-owner-platform-feedback": {
+        "type": "survey",
+        "domain": DOMAIN_SOFTWARE,
+        "tags": [
+            "field service",
+            "home services",
+            "trades",
+            "small business",
+            "booking",
+            "dispatch",
+            "invoicing",
+            "feature priority",
+            "usability",
+            "willingness to pay",
+        ],
+    },
     "web_mit-ocw-course-choice": {
         "type": "web",
         "domain": DOMAIN_EDUCATION,
