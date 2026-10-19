@@ -1,0 +1,30 @@
+name: Sync from upstream
+
+# Keeps this fork's main current with MatrAIx-ai/MatrAIx-Persona-8B main.
+# GitHub's merge-upstream API fast-forwards when it can and otherwise adds a
+# merge commit; it stops (and this run fails) on a conflict.
+#
+# The default token cannot write workflow files, so a run fails whenever
+# upstream changes .github/workflows. Click "Sync fork" on the repo page to
+# catch up, or add an UPSTREAM_SYNC_TOKEN secret (fine-grained token on this
+# repo with Contents and Workflows: read and write) so it never needs a hand.
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.event.repository.fork
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Merge upstream main into main
+        env:
+          GH_TOKEN: ${{ secrets.UPSTREAM_SYNC_TOKEN || github.token }}
+        run: gh api -X POST "repos/$GITHUB_REPOSITORY/merge-upstream" -f branch=main
